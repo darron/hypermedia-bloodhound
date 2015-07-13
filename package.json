@@ -1,0 +1,46 @@
+{
+  "name": "hypermedia-bloodhound",
+  "description": "Sniff network traffic to detect HTTP activity",
+  "version": "0.1.0",
+  "homepage": "https://github.com/codemoran/hypermedia-bloodhound",
+  "author": {
+    "name": "Michael Moran",
+    "url": "https://github.com/codemoran"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/codemoran/hypermedia-bloodhound.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codemoran/hypermedia-bloodhound/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/codemoran/hypermedia-bloodhound/blob/master/LICENSE-MIT"
+    }
+  ],
+  "keywords": [
+    "cli",
+    "command line",
+    "http sniffing"
+  ],
+  "preferGlobal": true,
+  "bin": {
+    "sniff": "./bin/sniff"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "scripts": {
+    "test": "mocha -R test"
+  },
+  "dependencies": {
+    "minimist": "~0.0.8",
+    "verbalize": "~0.1.1"
+  },
+  "devDependencies": {
+    "verb": "~0.2.0"
+  }
+}

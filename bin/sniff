@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var argv = require('minimist')(process.argv.slice(2));
+var log = require('verbalize');
+
+function displayHelp() {
+  log.writeln();
+  log.writeln('  /\\.-./~\\                                                ');
+  log.writeln(' (o//o)|  \\-._         .-"-.                              ');
+  log.writeln(' .~.\'~ |  |    )`-----\'     \\._      HYPERMEDIA BLOODHOUND');
+  log.writeln('(").\'/.|  |          (      /-.\\                                      ');
+  log.writeln(' (_/-\' \\_/    |       \\    |   \\\\                                     ');
+  log.writeln('        \ /  /   ____.-\\  /      ))   WHENEVER THERE\'S TROUBLE         ');
+  log.writeln('        /\| /_.-\'      \\\\ \\     ((     WE\'RE THERE ON THE DOUBLE       ');
+  log.writeln('       // ||           \\\\ \\     \\|                                    ');
+  log.writeln('       \\\\ ||\'          // \\\\                                         ');
+  log.writeln('       (/ ||         _//   \\\\                                        ');
+  log.writeln('       " (_/        (_/   (_/MJP                                     ');
+  log.writeln('         "          "     "                                          ');
+  log.writeln();
+  log.writeln('To run the hypermedia bloodhoud, execute the following');
+  log.writeln('$ sniff --help');
+}
+
+// Verbalize `runner`
+log.runner = 'hypermedia-bloodhound';
+
+if (argv.help) {
+  displayHelp();
+}
+
+displayHelp();
