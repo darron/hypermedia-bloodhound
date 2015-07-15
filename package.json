@@ -27,7 +27,7 @@
   ],
   "preferGlobal": true,
   "bin": {
-    "sniff": "./bin/sniff"
+    "bloodhound": "./bin/bloodhound"
   },
   "main": "index.js",
   "engines": {
