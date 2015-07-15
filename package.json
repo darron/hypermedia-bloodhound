@@ -34,9 +34,11 @@
     "node": ">=0.10"
   },
   "scripts": {
+    "postinstall": "pushd node_modules/geoip-lite && npm run-script updatedb && popd",
     "test": "mocha -R test"
   },
   "dependencies": {
+    "geoip-lite": "^1.1.6",
     "heap": "^0.2.6",
     "minimist": "~0.0.8",
     "pcap": "^2.0.1",
