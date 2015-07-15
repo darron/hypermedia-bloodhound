@@ -1,0 +1,59 @@
+#!/usr/bin/env node
+
+process.on('uncaughtException', function(err) {
+  console.error('Uncaught: %s', err);
+});
+
+var argv = require('minimist')(process.argv.slice(2));
+var log = require('verbalize');
+var sniff = require('../lib/sniff');
+
+function closeAndExit() {
+  if (sniff) {
+    log.done('stopping');
+    sniff.stop();
+  }
+
+  log.done('exiting');
+  process.exit(0);
+}
+
+process.stdin.setRawMode(false);
+process.stdin.resume();
+process.on('SIGINT', closeAndExit);
+process.on('SIGTERM', closeAndExit);
+
+function displayHelp() {
+  log.writeln();
+  log.success('  /\\.-./~\\                                                ');
+  log.success(' (o//o)|  \\-._         .-"-.                              ');
+  log.success(' .~.\'~ |  |    )`-----\'     \\._      HYPERMEDIA BLOODHOUND');
+  log.success('(").\'/.|  |          (      /-.\\                                      ');
+  log.success(' (_/-\' \\_/    |       \\    |   \\\\                                     ');
+  log.success('        \\ /  /   ____.-\\  /      ))   WHENEVER THERE\'S TROUBLE         ');
+  log.success('        /\\| /_.-\'      \\\\ \\     ((     WE\'RE THERE ON THE DOUBLE       ');
+  log.success('       // ||           \\\\ \\     \\|                                    ');
+  log.success('       \\\\ ||\'          // \\\\                                         ');
+  log.success('       (/ ||         _//   \\\\                                        ');
+  log.success('       " (_/        (_/   (_/MJP                                     ');
+  log.success('         "          "     "                                          ');
+  log.writeln();
+  log.error('To run the hypermedia bloodhoud, execute the following');
+  log.error('$ bloodhound --interface en0');
+}
+
+// Verbalize `runner`
+log.runner = 'hypermedia-bloodhound';
+
+if (argv.help) {
+  displayHelp();
+  process.exit(0);
+}
+
+if (process.getuid() !== 0) {
+  log.fatal('Root privileges are required to capture the raw packets.  If you don\'t run as root, you are going to have a bad time.');
+  process.exit(0);
+}
+
+// start up bloodhound
+sniff.start(argv.interface);
