@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 process.on('uncaughtException', function(err) {
-  console.error('Uncaught: %s', err);
+  console.error('Uncaught: %s', err.stack || err);
 });
 
 var argv = require('minimist')(process.argv.slice(2));
@@ -18,8 +18,9 @@ function closeAndExit() {
   process.exit(0);
 }
 
-process.stdin.setRawMode(false);
-process.stdin.resume();
+// process.stdin.setRawMode(false);
+// process.stdin.resume();
+process.on('exit', closeAndExit);
 process.on('SIGINT', closeAndExit);
 process.on('SIGTERM', closeAndExit);
 

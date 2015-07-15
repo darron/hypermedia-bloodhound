@@ -14,5 +14,5 @@ $ node bin/sniff
 # looking for help
 
 ```
-$ node bin/sniff --help
+$ node bin/bloodhound --help
 ```

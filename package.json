@@ -37,6 +37,7 @@
     "test": "mocha -R test"
   },
   "dependencies": {
+    "heap": "^0.2.6",
     "minimist": "~0.0.8",
     "pcap": "^2.0.1",
     "verbalize": "~0.1.1"
