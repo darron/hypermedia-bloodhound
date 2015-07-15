@@ -38,6 +38,8 @@
     "test": "mocha -R test"
   },
   "dependencies": {
+    "blessed": "^0.1.7",
+    "blessed-contrib": "^2.2.1",
     "geoip-lite": "^1.1.6",
     "heap": "^0.2.6",
     "minimist": "~0.0.8",
